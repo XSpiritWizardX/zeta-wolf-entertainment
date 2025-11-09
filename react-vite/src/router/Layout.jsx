@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation/Navigation";
-// import FooterCard from "../components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 // import CookieBanner from "../components/Compliance/CookieBanner/CookieBanner";
 import ScrollToTop from "./ScrollToTop";
 
@@ -27,7 +27,7 @@ export default function Layout() {
 
         {isLoaded && <Outlet />}
         <Modal />
-        {/* <FooterCard /> */}
+        <Footer />
       </ModalProvider>
     </>
   );

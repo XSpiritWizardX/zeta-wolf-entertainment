@@ -1,22 +1,60 @@
 .landing-page {
   width: 100%;
   height: auto;
-  padding-top: 120px;
-  /* background-color: #202022; */
-  background:
-    linear-gradient(
-    #202022 0%,
-    #202022 5%,
-    #202022 10%,
-    #202022 20%,
-
-    #ffffff 80%,
-    #ffffff  90%,
-    #ffffff 100%
-      );
+  min-height: 100vh;
+  background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow-x: hidden;
+  padding-bottom: 100px;
+}
+.land-top-header{
+  background-image: url("https://res.cloudinary.com/dl6ls3rgu/image/upload/v1762660164/rs_w_1023_m_hstkqj.webp");
+  background-size: cover;       /* makes it cover the entire div */
+  background-position: bottom;  /* keeps it centered */
+  background-repeat: no-repeat; /* prevents tiling */
+  width: 100%;                  /* full width */
+  height: 660px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.land-main-title{
+text-align: center;
+color:white;
+font-size: 36px;
+}
+.land-main-subtitle{
+  text-align: center;
+  color:white;
+  font-size: 70px;
+
+}
+.land-middle-follow-text{
+  color: #cccccc8f;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 40px;
+}
+.land-middle-contactus{
+  color: #cccccc8f;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 40px;
+}
+.facebook-icon {
+  color: #c7c7c7; /* Facebook blue */
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+}
+
+.facebook-icon:hover {
+  transform: scale(1.1);
+}
+.land-face-anchor{
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
