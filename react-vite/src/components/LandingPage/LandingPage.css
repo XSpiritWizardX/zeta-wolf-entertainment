@@ -1,0 +1,22 @@
+.landing-page {
+  width: 100%;
+  height: auto;
+  padding-top: 120px;
+  /* background-color: #202022; */
+  background:
+    linear-gradient(
+    #202022 0%,
+    #202022 5%,
+    #202022 10%,
+    #202022 20%,
+
+    #ffffff 80%,
+    #ffffff  90%,
+    #ffffff 100%
+      );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}

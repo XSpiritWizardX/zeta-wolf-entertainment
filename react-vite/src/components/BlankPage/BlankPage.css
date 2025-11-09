@@ -1,0 +1,34 @@
+.blank{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 30px;
+padding: 20px;
+margin-top: 9%;
+}
+
+.blank-button{
+width: 200px;
+border-radius: 20px;
+padding: 10px;
+}
+.blank-button:hover{
+    box-shadow: 0 0 20px black;
+}
+.blank-button-text{
+text-decoration: none;
+color: black;
+}
+.act-tit{
+    font-size: 30px;
+}
+.act-text{
+    font-size: 26px;
+}
+
+.logout-btn{
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+}
