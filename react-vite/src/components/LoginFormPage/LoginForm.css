@@ -1,6 +1,5 @@
 /* Container for the whole login/signup form */
 .login-form-page {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +13,7 @@
 .login-form-container {
   width: 100%;
   max-width: 500px; /* scalable max width */
+  min-height: 100vh;
   margin: 180px auto;
   padding: 30px 20px;
   background-color: #f7f7f7;
