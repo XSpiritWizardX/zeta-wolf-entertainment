@@ -1,0 +1,207 @@
+/* Container for the whole login/signup form */
+.login-form-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #484848af;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 9%;
+}
+
+/* Login form container */
+.login-form-container {
+  width: 100%;
+  max-width: 500px; /* scalable max width */
+  margin: 180px auto;
+  padding: 30px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Toggle buttons container */
+.login-toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.login-toggle-buttons button {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ddd;
+  color: #333;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-toggle-buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+  cursor: default;
+}
+
+.login-toggle-buttons button:disabled {
+  cursor: default;
+}
+
+/* Heading */
+.login-form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Wrapper for input + icon */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input,
+.account-type-select {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-wrapper input:focus,
+.account-type-select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Icon inside input */
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1.2rem;
+}
+
+/* Account type select dropdown */
+.account-type-select {
+  appearance: none; /* Remove default arrow */
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 16px;
+}
+
+/* Error messages */
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Submit button */
+.submit-btn,
+.demo-btn {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin: 2%;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.demo-btn {
+  background-color: #484848cc;
+  margin-top: 10px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+  .login-form-container {
+    padding: 25px 15px;
+  }
+
+  .login-toggle-buttons button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .input-wrapper input,
+  .account-type-select {
+    font-size: 0.9rem;
+    padding: 10px 10px 10px 35px;
+  }
+
+  .input-icon {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-form-container {
+    margin: 20px auto;
+    padding: 20px 15px;
+  }
+
+  .login-toggle-buttons {
+    flex-direction: column;
+  }
+
+  .login-toggle-buttons button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .login-form-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-wrapper input,
+  .account-type-select {
+    font-size: 0.85rem;
+    padding: 8px 8px 8px 30px;
+  }
+
+  .input-icon {
+    font-size: 0.9rem;
+  }
+
+  .submit-btn,
+  .demo-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

@@ -3,7 +3,7 @@ import LoginFormPage from "../components/LoginFormPage";
 import SignupFormPage from "../components/SignupFormPage";
 import Layout from "./Layout";
 import LandingPage from "../components/LandingPage/LandingPage";
-
+import ProductsPage from "../components/ProductsPage/ProductsPage";
 
 
 // General pages
@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
 
       // Public pages
       { path: "/", element: <LandingPage /> },
+      { path: "/products", element: <ProductsPage /> },
 
       { path: "coming-soon", element: <BlankPage /> },
       { path: "*", element: <BlankPage /> },

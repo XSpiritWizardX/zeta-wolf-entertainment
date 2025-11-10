@@ -7,6 +7,7 @@ import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 // import CookieBanner from "../components/Compliance/CookieBanner/CookieBanner";
 import ScrollToTop from "./ScrollToTop";
+import WolfTransition from "../components/WolfTransition/WolfTransition";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Layout() {
 
         {/* 🔹 This ensures scroll resets on every route change */}
         <ScrollToTop />
+        <WolfTransition /> {/* 🐺 Page transition animation */}
 
         {isLoaded && <Outlet />}
         <Modal />

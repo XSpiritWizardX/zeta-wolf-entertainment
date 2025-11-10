@@ -1,0 +1,79 @@
+/* src/components/WolfTransition/WolfTransition.css */
+.wolf-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black; /* 🖤 full black backdrop */
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Wolf animation */
+.wolf-run {
+  position: absolute;
+  bottom: 15%;
+  left: -250px;
+  width: 250px;
+  animation: wolfRunAcross 3.5s ease-in-out forwards;
+  z-index: 2;
+}
+
+.wolf-run img {
+  width: 100%;
+  height: 300px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
+  /* transform: scaleX(-1); 👈 flips the GIF horizontally */
+
+}
+
+/* Page swipe (the page being carried) */
+.page-slide {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: black; /* Keep consistent with background */
+  animation: pageFlip 1s ease-in-out forwards;
+  z-index: 1;
+}
+
+/* --- Animations --- */
+@keyframes wolfRunAcross {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(60vw) scale(1);
+  }
+  90% {
+    transform: translateX(105vw) scale(1.05);
+  }
+  100% {
+    transform: translateX(120vw) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes pageFlip {
+  0% {
+    left: -100%;
+  }
+  40% {
+    left: 0%;
+  }
+  80% {
+    left: 50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.wolf-transition {
+  background: radial-gradient(circle at center, #000 60%, #050505 100%);
+}

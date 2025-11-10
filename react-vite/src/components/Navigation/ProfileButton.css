@@ -1,0 +1,357 @@
+/* ---------- PROFILE DROPDOWN ---------- */
+.profile-dropdown {
+  position: absolute;
+  top: 120px;
+  right: 3rem;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 10px;
+  background-color: #ebebef;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 20px;
+  min-height: 100px;
+  height: 80vh;
+  overflow-y: auto;
+  width: 340px;
+  z-index: 1200;
+  opacity: 0;
+}
+
+/* Open dropdown: slide in */
+.profile-dropdown.show {
+  animation: slideIn 0.65s forwards;
+}
+
+/* Close dropdown: slide out */
+.profile-dropdown.hide {
+  animation: slideOut 0.95s forwards;
+}
+
+/* Keyframes for sliding in */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+}
+
+/* Keyframes for sliding out */
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+/* ---------- PUBLIC DROPDOWN LINKS ---------- */
+.profile-dropdown-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.clock{
+    text-indent: 20px;
+}
+.current-time{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-indent: 20px;
+}
+.profile-dropdown-items a {
+  color: #000000;
+  text-decoration: none;       /* remove default underline */
+  letter-spacing: 2px;
+  width: 100%;
+  font-size: 1.4rem;
+  border-radius: 20px;
+  padding: 1%;
+  text-indent: 6%;
+  position: relative;          /* needed for ::after */
+  transition: all 0.25s ease;
+}
+
+.profile-dropdown-items a:hover {
+  background-color: #c0c0c0; /* light grey hover */
+  /* color: #3AAFB9; */
+  /* text-decoration: underline; */
+}
+
+/* Profile button */
+.profile-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ffffff;
+}
+.profile-button:hover {
+  color: #7ea2b4;
+  transform: scale(1.2);
+}
+.dropdown-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.profile-info {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    padding-bottom: 4%;
+    text-indent: 20px;
+}
+
+/* ---------- SEARCH ---------- */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+
+.search-bar {
+  width: 90%;
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid #c0c0c0;
+  padding: 0 15px;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: 16px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border: 1px solid #000;
+  box-shadow: 0 0 5px #000;
+}
+.logout-button {
+color: #000000;
+height: 50%;
+width: 20%;
+border-radius: 25px;
+margin-left: 20px;
+}
+
+.logout-button:hover {
+cursor: pointer;
+background-color: rgba(128, 128, 128, 0.521);
+    box-shadow: 0 0 10px black;
+
+}
+.dropdown-section {
+  margin-bottom: 0.25rem;
+}
+
+/* Section toggle */
+.section-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #37505d;
+}
+
+/* Chevron on left, rotate 90° when open */
+.chevron {
+  display: inline-flex;
+  transform: rotate(-90deg);
+  transition: transform 0.45s ease;
+}
+
+.section-toggle.open .chevron {
+  transform: rotate(0deg); /* 90° open */
+}
+
+.section-title {
+  flex: 1;
+  text-align: left;
+}
+
+.section-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+  margin-top: 0.15rem;
+  text-indent: 1.7rem;
+}
+
+/* Target the actual link items */
+.section-links a {
+  position: relative;
+  color: #000;
+  text-decoration: none;     /* Remove browser underline */
+  padding: 4px 10px;
+  transition: background-color 0.25s ease;
+  border-radius: 20px;        /* optional for softer hover bg */
+}
+
+/* Custom underline */
+.section-links a::after {
+  content: "";
+  position: absolute;
+  left: 1.7rem;             /* align with your text-indent */
+  bottom: 0.2rem;           /*adjust to raise/lower line */
+  width: 0%;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+/* Hover effects */
+.section-links a:hover {
+  background-color: #c0c0c0;
+}
+
+.section-links a:hover::after {
+  width: calc(95% - 1.7rem);
+}
+
+
+.dropdown-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  border-radius: 20px;
+}
+
+.dropdown-link:hover {
+   background-color: #c0c0c0; /* light grey hover */
+   /* color: #3AAFB9; */
+   /* text-decoration: underline; */
+}
+.public-link {
+  color: #000000;
+  text-decoration: none;       /* remove default underline */
+  letter-spacing: 2px;
+  width: 100%;
+  font-size: 1.4rem;
+  border-radius: 20px;
+  padding: 1%;
+  text-indent: 6%;
+  position: relative;          /* needed for ::after */
+  transition: all 0.25s ease;
+}
+
+.public-link::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 10%;                 /* adjust vertical position */
+  width: 0%;                    /* start hidden */
+  height: 2px;                 /* thickness of the underline */
+  background-color: #000;      /* underline color */
+  transition: width 0.25s ease;
+}
+
+.public-link:hover {
+  background-color: #c0c0c0;  /* light grey hover */
+}
+
+.public-link:hover::after {
+  width: 88%;                  /* underline spans across text (100% - text-indent) */
+}
+
+
+.span-profile{
+    height: 2px;
+    width: 90%;
+    background-color: grey;
+    margin-bottom: 1%;
+    align-self: center;
+}
+
+
+
+/* ---------- Responsive Profile Dropdown ---------- */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .profile-dropdown {
+    top: 130px;
+    right: 1rem;
+    width: 80vw;
+    height: 70vh;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .profile-dropdown-items a,
+  .public-link {
+    font-size: 1.1rem;
+    text-indent: 4%;
+  }
+
+  .section-links {
+    font-size: 0.9rem;
+    padding-left: 0.25rem;
+    text-indent: 1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .profile-dropdown {
+    top: 70px;
+    left: 0;
+    width: 95vw;
+
+    max-height: 80vh;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .profile-dropdown-items a,
+  .public-link {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-indent: 2%;
+  }
+
+  .section-links {
+    gap: 0.4rem;
+    text-indent: 0.75rem;
+  }
+
+  .search-bar {
+    font-size: 14px;
+    height: 32px;
+  }
+
+  .logout-button {
+    width: 40%;
+    height: auto;
+    font-size: 0.85rem;
+  }
+}
