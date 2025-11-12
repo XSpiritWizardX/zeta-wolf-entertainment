@@ -1,60 +1,171 @@
 .landing-page {
   width: 100%;
-  height: auto;
   min-height: 100vh;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
+  background-color: #0a0a0a;
+  color: #f6f6f7;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
-  padding-bottom: 100px;
 }
-.land-top-header{
+
+/* ===== HERO ===== */
+.land-hero {
+  position: relative;
+  height: 100vh;
   background-image: url("https://res.cloudinary.com/dl6ls3rgu/image/upload/v1762660164/rs_w_1023_m_hstkqj.webp");
-  background-size: cover;       /* makes it cover the entire div */
-  background-position: bottom;  /* keeps it centered */
-  background-repeat: no-repeat; /* prevents tiling */
-  width: 100%;                  /* full width */
-  height: 660px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-.land-main-title{
-text-align: center;
-color:white;
-font-size: 36px;
-}
-.land-main-subtitle{
-  text-align: center;
-  color:white;
-  font-size: 70px;
-
-}
-.land-middle-follow-text{
-  color: #cccccc8f;
-  text-align: center;
-  padding-top: 40px;
-  font-size: 40px;
-}
-.land-middle-contactus{
-  color: #cccccc8f;
-  text-align: center;
-  padding-top: 40px;
-  font-size: 40px;
-}
-.facebook-icon {
-  color: #c7c7c7; /* Facebook blue */
-  font-size: 2.5rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-
-}
-
-.facebook-icon:hover {
-  transform: scale(1.1);
-}
-.land-face-anchor{
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.95));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2.5s ease;
+}
+
+.land-main-title {
+  font-size: 3rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #f6f6f7;
+  text-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.land-main-subtitle {
+  font-size: 1.5rem;
+  color: #bfc4c9;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== ABOUT ===== */
+.land-about {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #1b1d1f, #0a0a0a);
+}
+
+.land-about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #f6f6f7;
+}
+
+.land-about p {
+  max-width: 800px;
+  margin: 0.5rem auto;
+  font-size: 1.1rem;
+  color: #d0d3d6;
+  line-height: 1.8;
+}
+
+/* ===== MISSION ===== */
+.land-mission {
+  background: linear-gradient(180deg, #0a0a0a, #1b1d1f);
+  padding: 5rem 2rem;
   display: flex;
+  justify-content: center;
+}
+
+.mission-card {
+  max-width: 700px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.mission-card h2 {
+  color: #f3b547;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== SOCIALS ===== */
+.land-socials {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #1b1d1f, #0a0a0a);
+}
+
+.land-socials h2 {
+  font-size: 2.5rem;
+  color: #58b7f7;
+  margin-bottom: 1rem;
+}
+
+.land-socials p {
+  color: #d0d3d6;
+  margin-bottom: 2rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-icons a {
+  color: #bfc4c9;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f3b547;
+  transform: scale(1.2);
+}
+
+/* ===== CONTACT ===== */
+.land-contact {
+  text-align: center;
+  padding: 5rem 2rem 8rem;
+  background: linear-gradient(180deg, #0a0a0a, #1b1d1f);
+}
+
+.land-contact h2 {
+  font-size: 2rem;
+  color: #f6f6f7;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, #58b7f7, #f3b547);
+  color: #0a0a0a;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(243,181,71,0.3);
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(243,181,71,0.6);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }

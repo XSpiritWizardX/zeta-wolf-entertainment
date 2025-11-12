@@ -97,7 +97,7 @@
   color: #ffffff;
 }
 .profile-button:hover {
-  color: #7ea2b4;
+  color: #58b7f7;
   transform: scale(1.2);
 }
 .dropdown-close-btn {
@@ -230,7 +230,7 @@ background-color: rgba(128, 128, 128, 0.521);
 
 /* Hover effects */
 .section-links a:hover {
-  background-color: #c0c0c0;
+  background: linear-gradient(90deg, #58b7f7, #ccc);
 }
 
 .section-links a:hover::after {
@@ -276,7 +276,7 @@ background-color: rgba(128, 128, 128, 0.521);
 }
 
 .public-link:hover {
-  background-color: #c0c0c0;  /* light grey hover */
+  background: linear-gradient(90deg, #58b7f7, #ccc);
 }
 
 .public-link:hover::after {

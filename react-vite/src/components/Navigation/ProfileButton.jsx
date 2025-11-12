@@ -74,36 +74,7 @@ function ProfileButton() {
         links: [
           { to: "/admin/profile", label: "Profile Settings" },
           { to: "/admin/manage/users", label: "User Management" },
-          { to: "/admin/roles", label: "Roles & Permissions" },
-        ],
-      },
-      {
-        title: "Product & Inventory",
-        links: [
-          { to: "/admin/manage/products", label: "Manage Products" },
-          { to: "/admin/manage/products/new", label: "Add New Product" },
-          { to: "/admin/manage/cats", label: "Manage Categories" },
-          { to: "/admin/manage/cats/new", label: "Add New Category" },
-          { to: "/admin/manage/cat-pictures", label: "Manage Category Pictures" },
-          { to: "/admin/manage/cat-pictures/new", label: "Add New Category Picture" },
-          { to: "/admin/inventory", label: "Inventory / Stock" },
-        ],
-      },
-      {
-        title: "Orders & Customers",
-        links: [
           { to: "/admin/manage/contact-forms", label: "Contact Forms" },
-          { to: "/admin/orders", label: "Orders Dashboard" },
-          { to: "/admin/orders/abandoned", label: "Abandoned Carts" },
-          { to: "/admin/customers", label: "Customers" },
-        ],
-      },
-      {
-        title: "Manufacturing / Ops",
-        links: [
-          { to: "/admin/production", label: "Production Queue" },
-          { to: "/admin/materials", label: "Materials & Suppliers" },
-          { to: "/admin/shipping", label: "Shipping & Logistics" },
         ],
       },
       {
@@ -116,61 +87,15 @@ function ProfileButton() {
           { to: "/blog", label: "Blogs" },
           { to: "/admin/manage/blogs", label: "Manage Blogs" },
           { to: "/admin/manage/blogs/new", label: "Add New Blog" },
-          // { to: "/admin/manage/blog-images", label: "Manage Blog Images" },
-          // { to: "/admin/manage/blog-images/new", label: "Add New Blog Image" },
         ],
       },
       {
         title: "HR & Internal",
         links: [
           { to: "/admin/hr", label: "HR Resources" },
-          { to: "/admin/hr/timesheets", label: "Timesheets" },
           { to: "/admin/hr/training", label: "Training / SOPs" },
-        ],
-      },
-      {
-        title: "System / Utilities",
-        links: [
-          { to: "/admin/settings", label: "Site Settings" },
-          { to: "/admin/integrations", label: "Integrations" },
-          { to: "/admin/logs", label: "Logs / Audit" },
-        ],
-      },
-    ],
-    Customer: [
-      {
-        title: "Account",
-        links: [
-          { to: "/orders", label: "My Orders" },
-          { to: "/wishlist", label: "Wishlist" },
-          { to: "/settings", label: "Account Settings" },
-        ],
-      },
-    ],
-    Contractor: [
-      {
-        title: "Projects",
-        links: [
-          { to: "/contractor/jobs", label: "My Jobs" },
-          { to: "/contractor/bids", label: "Bids & Quotes" },
-        ],
-      },
-    ],
-    Retailer: [
-      {
-        title: "Sales Tools",
-        links: [
-          { to: "/retailer/orders", label: "Orders" },
-          { to: "/retailer/catalog", label: "Catalog" },
-        ],
-      },
-    ],
-    Designer: [
-      {
-        title: "Design Resources",
-        links: [
-          { to: "/designer/portfolio", label: "My Portfolio" },
-          { to: "/designer/templates", label: "Templates" },
+          { to: "/employee/timesheets", label: "Timesheets" },
+          { to: "/employee/resources", label: "Resources" },
         ],
       },
     ],
@@ -178,17 +103,18 @@ function ProfileButton() {
       {
         title: "Work Tools",
         links: [
+          { to: "/admin/profile", label: "Profile Settings" },
           { to: "/employee/timesheets", label: "Timesheets" },
           { to: "/employee/resources", label: "Resources" },
+          { to: "/admin/hr/training", label: "Training / SOPs" },
         ],
       },
     ],
-    Dealer: [
+    Customer: [
       {
-        title: "Dealer Center",
+        title: "Settings",
         links: [
-          { to: "/dealer/orders", label: "Dealer Orders" },
-          { to: "/dealer/pricing", label: "Pricing Sheets" },
+          { to: "/admin/profile", label: "Profile Settings" },
         ],
       },
     ],
@@ -230,22 +156,11 @@ function ProfileButton() {
                 </button>
 
                 <span className="span-profile"></span>
-                {/* <div className="search-bar-container">
-                  <input
-                    className="search-bar"
-                    type="text"
-                    placeholder="Search for products..."
-                  />
-              <NavLink to="/advanced-search" onClick={toggleMenu} className="public-link">Advanced Search</NavLink>
-                </div> */}
-                {/* <span className="span-profile"></span> */}
-              {/* Public Links */}
+
               <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
-              <NavLink to="/products" onClick={toggleMenu} className="public-link">Products</NavLink>
-              {/* <NavLink to="/blog" onClick={toggleMenu} className="public-link">Blog</NavLink> */}
-              {/* <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink> */}
+              <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink>
+              <NavLink to="/solutions" onClick={toggleMenu} className="public-link">Solutions</NavLink>
               <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
-              <NavLink to="/cart" onClick={toggleMenu} className="public-link">Cart</NavLink>
               <span className="span-profile"></span>
               </div>
               {sections.map((section) => {
@@ -285,23 +200,10 @@ function ProfileButton() {
               <NavLink to="/login" onClick={toggleMenu} className="public-link">Login / Signup</NavLink>
               <Clock className="clock"/>
               <span className="span-profile"></span>
-              {/* Public Links */}
-               <div className="search-bar-container">
-                  <input
-                    className="search-bar"
-                    type="text"
-                    placeholder="Search for products..."
-                  />
-              <NavLink to="/advanced-search" onClick={toggleMenu} className="public-link">Advanced Search</NavLink>
-                </div>
-                <span className="span-profile"></span>
-
               <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
-              <NavLink to="/products" onClick={toggleMenu} className="public-link">Products</NavLink>
-              {/* <NavLink to="/blog" onClick={toggleMenu} className="public-link">Blog</NavLink> */}
+              <NavLink to="/solutions" onClick={toggleMenu} className="public-link">Solutions</NavLink>
               <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink>
               <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
-              <NavLink to="/cart" onClick={toggleMenu} className="public-link">Cart</NavLink>
             </div>
           )}
         </div>

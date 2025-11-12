@@ -6,11 +6,9 @@ import {
   FaUser,
   FaLock,
   FaEnvelope,
-  FaIdBadge,
   FaPhone,
 } from "react-icons/fa";
-// import { GoogleLogin } from "@react-oauth/google";
-// import ReCAPTCHA from "react-google-recaptcha";
+
 import "./LoginForm.css";
 import { thunkLogin, thunkSignup } from "../../redux/session";
 
@@ -29,14 +27,9 @@ function LoginFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [accountType, setAccountType] = useState("Customer");
-  const [acceptTerms, setAcceptTerms] = useState(false);
-  const [subscribeNewsletter, setSubscribeNewsletter] = useState(false);
   const [errors, setErrors] = useState({});
   const [message] = useState(null);
-  // const [showForgot, setShowForgot] = useState(false);
-  // const [forgotEmail, setForgotEmail] = useState("");
-  // const [captchaToken, setCaptchaToken] = useState(null);
+
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -64,58 +57,24 @@ function LoginFormPage() {
     if (!password) signupErrors.password = "Password is required.";
     if (!confirmPassword)
       signupErrors.confirmPassword = "Please confirm your password.";
-    if (password && confirmPassword && password !== confirmPassword)
-      signupErrors.confirmPassword = "Passwords do not match.";
-    if (!acceptTerms)
-      signupErrors.acceptTerms =
-        "You must accept the Terms of Service & Privacy Policy.";
 
-    // -----------------------------
-    // CAPTCHA Verification
-    // -----------------------------
-    // if (!captchaToken) {
-    //   signupErrors.captcha = "Please verify that you are not a robot.";
-    // } else {
-    //   try {
-    //     const apiBase =
-    //       import.meta.env.MODE === "production"
-    //         ? "https://stainless-steel-kitchens.onrender.com"
-    //         : "http://127.0.0.1:8000";
 
-    //     const res = await fetch(`${apiBase}/api/captchas/verify-captcha`, {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({ response: captchaToken }),
-    //     });
-
-    //     const data = await res.json();
-    //     if (!data.success) {
-    //       signupErrors.captcha = "Captcha failed or expired. Please try again.";
-    //     }
-    //   } catch (err) {
-    //     signupErrors.captcha = "Captcha verification failed. Please try again.";
-    //   }
-    // }
 
     if (Object.keys(signupErrors).length > 0) {
       setErrors(signupErrors);
       return;
     }
 
-    const requiresApproval = accountType !== "Customer";
-    const isVerified = !requiresApproval;
 
     const serverResponse = await dispatch(
       thunkSignup({
-        account_type: accountType,
+        account_type: "Customer",
         firstname: firstName,
         lastname: lastName,
         email,
         phone,
         password,
-        agreed_to_terms_privacy: acceptTerms,
-        subscribed: subscribeNewsletter,
-        is_verified: isVerified,
+
       })
     );
 
@@ -134,70 +93,6 @@ function LoginFormPage() {
     else navigate("/");
   };
 
-  // -----------------------------
-  // Google Login / Signup
-  // -----------------------------
-  // const handleGoogleSuccess = async (credentialResponse) => {
-  //   try {
-  //     const token = credentialResponse.credential;
-  //     const res = await fetch("/api/auth/google/callback", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ token }),
-  //     });
-
-  //     if (!res.ok) throw new Error("Google login failed");
-  //     const data = await res.json();
-  //     if (data && data.email) {
-  //       dispatch(setUser(data));
-  //       navigate("/");
-  //     } else {
-  //       console.error("Invalid user data from backend");
-  //     }
-  //   } catch (error) {
-  //     console.error("Google login failed:", error);
-  //     setErrors({ google: "Google authentication failed. Please try again." });
-  //   }
-  // };
-
-  // const handleGoogleError = () => {
-  //   setErrors({ google: "Google authentication was cancelled or failed." });
-  // };
-
-  // -----------------------------
-  // Forgot Password
-  // -----------------------------
-  // const handleForgotPassword = async () => {
-  //   setMessage(null);
-  //   setErrors({});
-  //   if (!forgotEmail) {
-  //     setErrors({ forgotEmail: "Please enter your email." });
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch("/api/auth/forgot-password", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ email: forgotEmail }),
-  //     });
-
-  //     const data = await response.json();
-  //     if (response.ok) {
-  //       setMessage("A password reset link has been sent to your email.");
-  //       setForgotEmail("");
-  //       setShowForgot(false);
-  //     } else {
-  //       setErrors({ forgotEmail: data.error || "Failed to send reset link." });
-  //     }
-  //   } catch {
-  //     setErrors({ forgotEmail: "An error occurred. Please try again." });
-  //   }
-  // };
-
-  // -----------------------------
-  // JSX
-  // -----------------------------
   return (
     <div className="login-form-container">
       <div className="login-toggle-buttons">
@@ -224,18 +119,7 @@ function LoginFormPage() {
         {/* -------------------------- SIGNUP FIELDS -------------------------- */}
         {mode === "signup" && (
           <>
-            <label className="input-wrapper">
-              <FaIdBadge className="input-icon" />
-              <select
-                className="account-type-select"
-                value={accountType}
-                onChange={(e) => setAccountType(e.target.value)}
-              >
-                <option value="Customer">Customer</option>
-                <option value="Contractor">Contractor</option>
-                <option value="Designer">Designer</option>
-              </select>
-            </label>
+
 
             <label className="input-wrapper">
               <FaUser className="input-icon" />
@@ -352,38 +236,10 @@ function LoginFormPage() {
             </label>
             {errors.phone && <p className="error">{errors.phone}</p>}
 
-            <label className="checkbox-wrapper">
-              <input
-                type="checkbox"
-                checked={acceptTerms}
-                onChange={(e) => setAcceptTerms(e.target.checked)}
-              />
-              I accept the{" "}
-              <a href="/terms-and-conditions">Terms of Service</a>,{" "}
-              <a href="/privacy-policy">Privacy Policy</a> &{" "}
-              <a href="/cookies-policy">Cookies Policy</a>
-            </label>
-            {errors.acceptTerms && (
-              <p className="error">{errors.acceptTerms}</p>
-            )}
 
-            <label className="checkbox-wrapper">
-              <input
-                type="checkbox"
-                checked={subscribeNewsletter}
-                onChange={(e) => setSubscribeNewsletter(e.target.checked)}
-              />
-              Subscribe to our newsletter
-            </label>
 
             {/* -------------------------- CAPTCHA -------------------------- */}
-            {/* <div className="captcha-wrapper">
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                onChange={(token) => setCaptchaToken(token)}
-              />
-              {errors.captcha && <p className="error">{errors.captcha}</p>}
-            </div> */}
+
           </>
         )}
 
@@ -393,15 +249,7 @@ function LoginFormPage() {
       </form>
 
       {/* -------------------------- GOOGLE LOGIN -------------------------- */}
-      {/* <div className="google-auth-wrapper">
-        <p className="or-divider">— or —</p>
-        <GoogleLogin
-          onSuccess={handleGoogleSuccess}
-          onError={handleGoogleError}
-          useOneTap
-        />
-        {errors.google && <p className="error">{errors.google}</p>}
-      </div> */}
+
 
       {/* -------------------------- DEMO LOGINS -------------------------- */}
       {mode === "login" && (

@@ -29,17 +29,17 @@ function Navigation() {
         <div className="page-links-cont">
           <div className="link-word-group">
             <NavLink to="/" className="nav-bar-text">Home</NavLink>
-            <NavLink to="/products" className="nav-bar-text">Products</NavLink>
-            {/* <NavLink to="/company" className="nav-bar-text">Company</NavLink> */}
+            <NavLink to="/company" className="nav-bar-text">Company</NavLink>
+            <NavLink to="/solutions" className="nav-bar-text">Solutions</NavLink>
             {/* <NavLink to="/blog" className="nav-bar-text">Blog</NavLink> */}
             <NavLink to="/contact" className="nav-bar-text">Contact</NavLink>
-            <NavLink to="/cart" className="nav-bar-text">Cart</NavLink>
+            {/* <NavLink to="/cart" className="nav-bar-text">Cart</NavLink> */}
           </div>
         </div>
       </nav>
 
       <div className="icons-group">
-        <a href="tel:+5742722530" className="nav-bar-text-phone-link">
+        <a href="tel:+5172706827" className="nav-bar-text-phone-link">
           (517) 270-6827
         </a>
 
