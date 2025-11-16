@@ -108,6 +108,7 @@ def contact_form():
     admin_subject = "🔥 New Contact Form Submission"
 
     admin_html = f"""
+        <h2>You got a new contact form submission.</h2>
         <h3>New Contact Message:</h3>
         <p><strong>Name:</strong> {name}</p>
         <p><strong>Email:</strong> {email}</p>
