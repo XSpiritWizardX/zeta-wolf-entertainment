@@ -20,7 +20,19 @@
   z-index: 1200;
   opacity: 0;
 }
+.auth-button-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth-button{
+  border-radius: 15px;
+  cursor: pointer;
+}
+.auth-button:hover{
+  background-color: #58b7f7;
 
+}
 /* Open dropdown: slide in */
 .profile-dropdown.show {
   animation: slideIn 0.65s forwards;

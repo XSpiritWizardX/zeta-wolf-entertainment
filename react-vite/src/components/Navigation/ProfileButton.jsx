@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUserCircle, FaChevronDown } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { thunkLogout } from "../../redux/session";
 import "./ProfileButton.css";
-
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 // ⏰ Clock component
 function Clock() {
   const [time, setTime] = useState(new Date());
@@ -28,6 +30,7 @@ function ProfileButton() {
   const [isVisible, setIsVisible] = useState(false); // keeps dropdown in DOM for animation
   const [openSections, setOpenSections] = useState({});
   const ulRef = useRef();
+  const navigate = useNavigate();
 
   // toggle dropdown
   const toggleMenu = (e) => {
@@ -39,7 +42,7 @@ function ProfileButton() {
       setShowMenu(false);
     }
   };
-
+  const closeMenu = () => setShowMenu(false);
   // Remove dropdown after animation
   useEffect(() => {
     if (!showMenu && isVisible) {
@@ -64,6 +67,8 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     setShowMenu(false);
+    navigate('/')
+
   };
 
   /** Dropdown sections by account type */
@@ -159,7 +164,7 @@ function ProfileButton() {
 
               <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
               <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink>
-              <NavLink to="/solutions" onClick={toggleMenu} className="public-link">Solutions</NavLink>
+              <NavLink to="/services" onClick={toggleMenu} className="public-link">Services</NavLink>
               <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
               <span className="span-profile"></span>
               </div>
@@ -197,11 +202,26 @@ function ProfileButton() {
             </>
           ) : (
             <div className="profile-dropdown-items">
-              <NavLink to="/login" onClick={toggleMenu} className="public-link">Login / Signup</NavLink>
+                 <div
+            className="auth-button-container"
+            >
+              <OpenModalButton
+                className="auth-butto"
+                buttonText="Log In"
+                onButtonClick={closeMenu}
+                modalComponent={<LoginFormModal />}
+              />
+              <OpenModalButton
+                className="auth-button"
+                buttonText="Sign Up"
+                onButtonClick={closeMenu}
+                modalComponent={<SignupFormModal />}
+              />
+            </div>
               <Clock className="clock"/>
               <span className="span-profile"></span>
               <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
-              <NavLink to="/solutions" onClick={toggleMenu} className="public-link">Solutions</NavLink>
+              <NavLink to="/services" onClick={toggleMenu} className="public-link">Services</NavLink>
               <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink>
               <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
             </div>
