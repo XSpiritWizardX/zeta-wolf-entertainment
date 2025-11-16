@@ -85,11 +85,11 @@ export default function CompanyPage() {
             <h3>Timothy Turner</h3>
             <p>Founder & Creative Visionary</p>
           </div>
-          <div className="team-card">
+          {/* <div className="team-card">
             <img src="https://res.cloudinary.com/dl6ls3rgu/image/upload/v1756747720/IMG_20250824_162749713_PORTRAIT_atwbj4.jpg" alt="Dustin Bovee" />
             <h3>Dustin Bovee</h3>
             <p>Lead Software Engineer</p>
-          </div>
+          </div> */}
 
           {/* <div className="team-card">
             <img src="https://res.cloudinary.com/dwxpnnlfe/image/upload/v1763301890/team3_wolf.jpg" alt="Luna Voss" />

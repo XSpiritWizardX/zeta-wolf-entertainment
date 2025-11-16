@@ -2,12 +2,14 @@ import { useState } from "react";
 import "./ContactForm.css";
 
 export default function ContactForm() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-    subscribe: false,
-  });
+ const [form, setForm] = useState({
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+  subscribe: false,
+});
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -17,11 +19,23 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", form);
-    alert("Thanks for reaching out!");
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(form),
+  });
+
+  if (res.ok) {
+    alert("Thanks for reaching out! A confirmation email has been sent.");
+    setForm({ name: "", email: "", message: "", subscribe: false });
+  } else {
+    alert("Something went wrong. Try again later.");
+  }
+};
+
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
@@ -35,6 +49,16 @@ export default function ContactForm() {
           value={form.name}
           onChange={handleChange}
           placeholder="Your name"
+        />
+      </label>
+      <label>
+        Phone
+        <input
+          type="text"
+          name="phone"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="Your phone number"
         />
       </label>
 
