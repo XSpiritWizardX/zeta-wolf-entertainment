@@ -5,11 +5,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: black; /* 🖤 full black backdrop */
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.8) 100%),
+    url("https://res.cloudinary.com/dooet0x6x/image/upload/v1763612235/Dv9E_vfcm0p.gif");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
   z-index: 9999;
   pointer-events: none;
   overflow: hidden;
+  isolation: isolate;
 }
+
+
 
 /* Wolf animation */
 .wolf-run {
@@ -25,21 +33,8 @@
   width: 100%;
   height: 300px;
   height: auto;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
-  /* transform: scaleX(-1); 👈 flips the GIF horizontally */
-
-}
-
-/* Page swipe (the page being carried) */
-.page-slide {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: black; /* Keep consistent with background */
-  animation: pageFlip 1s ease-in-out forwards;
-  z-index: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.45)); /* subtle glow highlight */
+  transform: scaleX(-1); /* flip so wolf faces right while running right */
 }
 
 /* --- Animations --- */
@@ -56,24 +51,20 @@
   }
   100% {
     transform: translateX(120vw) scale(1.1);
-    opacity: 0;
+    opacity: 1; /* keep visible at end */
   }
 }
 
-@keyframes pageFlip {
-  0% {
-    left: -100%;
+/* --- Responsive tweaks --- */
+@media (max-width: 768px) {
+
+  .wolf-run {
+    bottom: 12%;
+    left: -180px;
+    width: 190px;
   }
-  40% {
-    left: 0%;
+
+  .wolf-run img {
+    height: 220px;
   }
-  80% {
-    left: 50%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-.wolf-transition {
-  background: radial-gradient(circle at center, #000 60%, #050505 100%);
 }

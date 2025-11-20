@@ -10,7 +10,7 @@ export default function WolfTransition() {
 
   useEffect(() => {
     setShow(true);
-    const timer = setTimeout(() => setShow(false), 3000); // 3.5s duration
+    const timer = setTimeout(() => setShow(false), 3500); // 4s duration
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -18,11 +18,9 @@ export default function WolfTransition() {
     <>
       {show && (
         <div className="wolf-transition">
-          <div className="page-slide"></div>
-
           <div className="wolf-run">
             {/* <img src="https://res.cloudinary.com/dl6ls3rgu/image/upload/v1762746206/30374998_Iwf9MVEY7ydoULV_oydwvj.gif" alt="Running wolf" /> */}
-            <img src="https://res.cloudinary.com/dl6ls3rgu/image/upload/v1762745869/wolf_run_tryacw.gif" alt="Running wolf" />
+            <img src="https://res.cloudinary.com/dooet0x6x/image/upload/v1763248133/30374998_Iwf9MVEY7ydoULV_utxpx3.gif" alt="Running wolf" />
             <div className="wolf-trail"></div>
           </div>
         </div>

@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
       // Public pages
       { path: "/", element: <LandingPage /> },
       { path: "/services", element: <ProductsPage /> },
-      { path: "/company", element: <CompanyPage /> },
+      { path: "/about", element: <CompanyPage /> },
       { path: "/contact", element: <ContactPage /> },
 
       { path: "coming-soon", element: <BlankPage /> },

@@ -7,6 +7,7 @@ import "./LoginFormModal.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const DEMO_ADMIN = { email: "demo@example.io", password: "password" };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -40,19 +41,16 @@ function LoginFormModal() {
     }
   };
 
-  const loginDemo = (e) => {
+  const loginDemo = async (e) => {
     e.preventDefault();
-    dispatch(thunkLogin({
-        email: 'demo@example.io',
-        password: 'password'
-    }))
-    .then(() => closeModal())
-    .then(() => {
-      // add delay before navigation
-      setTimeout(() => {
-        navigate('/');
-      }, 100);
-    });
+    const serverResponse = await dispatch(thunkLogin(DEMO_ADMIN));
+    if (serverResponse) {
+      setErrors(serverResponse);
+      return;
+    }
+
+    await closeModal();
+    setTimeout(() => navigate("/"), 120);
   };
 
   const loginDemo2 = (e) => {
@@ -116,6 +114,7 @@ function LoginFormModal() {
 
         <button
         className='demo-log-in'
+        type="button"
         onClick={loginDemo}
         >
           Demo Admin
@@ -123,6 +122,7 @@ function LoginFormModal() {
 
         <button
         className='demo-log-in'
+        type="button"
         onClick={loginDemo2}
         >
           Demo User

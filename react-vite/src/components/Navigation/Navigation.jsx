@@ -13,14 +13,16 @@ function Navigation() {
           src="https://res.cloudinary.com/dl6ls3rgu/image/upload/v1762743629/500934938_122238075986229799_8659925724644000126_n-removebg-preview_gwlxzv.png"
           alt="Logo"
         />
+        <span className="nav-brand-name">Zeta Wolf Entertainment</span>
       </NavLink>
+  
 
       {/* Links */}
       <nav className={`page-links-container-top`}>
         <div className="page-links-cont">
           <div className="link-word-group">
             <NavLink to="/" className="nav-bar-text">Home</NavLink>
-            <NavLink to="/company" className="nav-bar-text">Company</NavLink>
+            <NavLink to="/about" className="nav-bar-text">About Us</NavLink>
             <NavLink to="/services" className="nav-bar-text">Services</NavLink>
             <NavLink to="/contact" className="nav-bar-text">Contact</NavLink>
           </div>
@@ -28,9 +30,9 @@ function Navigation() {
       </nav>
 
       <div className="icons-group">
-        <a href="tel:+5172706827" className="nav-bar-text-phone-link">
+        {/* <a href="tel:+5172706827" className="nav-bar-text-phone-link">
           (517) 270-6827
-        </a>
+        </a> */}
 
         <span className="cart-icon-wrapper"></span>
 

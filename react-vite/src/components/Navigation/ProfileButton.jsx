@@ -85,41 +85,18 @@ function ProfileButton() {
       {
         title: "Analytics & Marketing",
         links: [
-          { to: "/admin/analytics/sales", label: "Sales Analytics" },
-          { to: "/admin/analytics/customers", label: "Customer Insights" },
-          { to: "/admin/marketing/coupons", label: "Promotions / Coupons" },
-          { to: "/admin/seo", label: "SEO & Content" },
           { to: "/blog", label: "Blogs" },
           { to: "/admin/manage/blogs", label: "Manage Blogs" },
           { to: "/admin/manage/blogs/new", label: "Add New Blog" },
         ],
       },
-      {
-        title: "HR & Internal",
-        links: [
-          { to: "/admin/hr", label: "HR Resources" },
-          { to: "/admin/hr/training", label: "Training / SOPs" },
-          { to: "/employee/timesheets", label: "Timesheets" },
-          { to: "/employee/resources", label: "Resources" },
-        ],
-      },
     ],
-    Employee: [
-      {
-        title: "Work Tools",
-        links: [
-          { to: "/admin/profile", label: "Profile Settings" },
-          { to: "/employee/timesheets", label: "Timesheets" },
-          { to: "/employee/resources", label: "Resources" },
-          { to: "/admin/hr/training", label: "Training / SOPs" },
-        ],
-      },
-    ],
+
     Customer: [
       {
         title: "Settings",
         links: [
-          { to: "/admin/profile", label: "Profile Settings" },
+          { to: "/profile", label: "Profile Settings" },
         ],
       },
     ],
@@ -138,7 +115,11 @@ function ProfileButton() {
   return (
     <>
       <button className="profile-button" onClick={toggleMenu}>
-        <FaUserCircle />
+        <img
+          className="profile-avatar"
+          src="https://res.cloudinary.com/dooet0x6x/image/upload/v1763248129/howling-wolf-41_ltqhja.gif"
+          alt="Profile menu"
+        />
       </button>
 
       {isVisible && (
@@ -152,22 +133,41 @@ function ProfileButton() {
 
           {user ? (
             <>
-              <div className="profile-info">
-                <strong>{user.firstname} {user.lastname}</strong>
-                <span>{user.email}</span>
-                <Clock className="clock"/>
+              <div className="profile-top">
+                <div className="avatar-glow">
+                  <FaUserCircle className="avatar-icon" />
+                </div>
+                <div className="profile-summary">
+                  <p className="eyebrow">Welcome back</p>
+                  <div className="name-line">
+                    <strong>{user.firstname} {user.lastname}</strong>
+                    <span className="role-pill">{accountType}</span>
+                  </div>
+                  <span className="email-line">{user.email}</span>
+                </div>
+                <div className="clock-chip">
+                  <Clock />
+                </div>
+              </div>
+
+              <div className="profile-actions">
+                <span className="mood-pill">Stay wild, roam free</span>
                 <button onClick={logout} className="logout-button">
                   Log Out
                 </button>
-
-                <span className="span-profile"></span>
-
-              <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
-              <NavLink to="/company" onClick={toggleMenu} className="public-link">Company</NavLink>
-              <NavLink to="/services" onClick={toggleMenu} className="public-link">Services</NavLink>
-              <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
-              <span className="span-profile"></span>
               </div>
+
+              <span className="span-profile"></span>
+
+              <div className="profile-quick-links">
+                <NavLink to="/" onClick={toggleMenu} className="public-link">Home</NavLink>
+                <NavLink to="/about" onClick={toggleMenu} className="public-link">About Us</NavLink>
+                <NavLink to="/services" onClick={toggleMenu} className="public-link">Services</NavLink>
+                <NavLink to="/contact" onClick={toggleMenu} className="public-link">Contact</NavLink>
+              </div>
+
+              <span className="span-profile"></span>
+
               {sections.map((section) => {
                 const isOpen = openSections[section.title];
                 return (

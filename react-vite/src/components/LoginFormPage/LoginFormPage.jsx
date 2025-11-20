@@ -85,9 +85,9 @@ function LoginFormPage() {
   // -----------------------------
   // Demo Logins
   // -----------------------------
-  const handleDemoLogin = async (email) => {
+  const handleDemoLogin = async () => {
     const serverResponse = await dispatch(
-      thunkLogin({ email, password: "password" })
+      thunkLogin({ email: "demo@example.io", password: "password" })
     );
     if (serverResponse) setErrors(serverResponse);
     else navigate("/");
@@ -256,7 +256,8 @@ function LoginFormPage() {
         <>
           <button
             className="demo-btn"
-            onClick={() => handleDemoLogin("demo@example.io")}
+            type="button"
+            onClick={handleDemoLogin}
           >
             Demo Admin Login
           </button>

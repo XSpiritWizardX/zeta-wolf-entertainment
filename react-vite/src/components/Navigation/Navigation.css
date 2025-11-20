@@ -47,14 +47,29 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  gap: 10px;
+}
+.nav-bar-logo-text {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 300px;
 }
 
 .nav-logo {
   height: 100px;
   border-radius: 25px;
   object-fit: contain;
-  width: auto;
+  width: 100px;
 
+}
+
+.nav-brand-name {
+  color: #f4f6fb;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+  font-size: 18px;
 }
 
 
@@ -65,7 +80,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  width: 75%;
+  width: 100%;
   margin-left: 30%;
 }
 
@@ -79,7 +94,6 @@
 }
 
 .link-word-group{
-  margin-right: 39%;
 }
 .icons-group{
   display: flex;
@@ -87,7 +101,6 @@ margin-right: 5%;
   gap: 50px;
   justify-content: flex-end;
   align-items: center;
-  width: 30%;
 }
 .nav-bar-text,
 .nav-bar-text-shop,
@@ -122,7 +135,6 @@ margin-right: 5%;
 /* Tablets & below */
 @media (max-width: 1024px) {
   .navigation-container {
-    flex-wrap: wrap;
     padding: .5rem;
     justify-content: space-between;
   }
@@ -134,6 +146,10 @@ margin-right: 5%;
   .nav-logo {
     max-width: 140px;
     height: 100%;
+  }
+  .nav-brand-name {
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 
   .page-links-cont {
@@ -203,6 +219,49 @@ margin-right: 5%;
     gap: 15px;
     margin-right: 2%;
     width: 70%;
+  }
+}
+
+/* Compact mobile adjustments */
+@media (max-width: 768px) {
+  .navigation-container {
+    height: 72px;
+    padding: 0 0.75rem;
+  }
+  .nav-logo {
+    width: 80px;
+    height: 80px;
+  }
+  .nav-brand-name {
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    max-width: 60vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons-group {
+    gap: 16px;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-container {
+    height: 64px;
+    padding: 0 0.6rem;
+  }
+  .nav-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+  .nav-brand-name {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    max-width: 55vw;
+  }
+  .icons-group {
+    gap: 12px;
   }
 }
 .nav-bar-text-phone-link{

@@ -10,7 +10,7 @@ export default function ContactPage() {
       <section className="contact-hero">
         <div className="contact-overlay" />
         <div className="contact-hero-content">
-          <h1>CONTACT ZETA WOLF ENTERTAINMENT</h1>
+          <h1>CONTACT <br/> ZETA WOLF ENTERTAINMENT</h1>
           <p>Unleash your ideas. Collaborate with the pack.</p>
         </div>
       </section>
